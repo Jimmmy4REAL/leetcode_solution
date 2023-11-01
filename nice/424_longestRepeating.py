@@ -18,7 +18,7 @@ class Solution(object):
             # update counter and continue OR to remove one left_pointer element
             record[s[r]] += 1
             
-            while r - l + 1- max(record.values()) > k:
+            if r - l + 1- max(record.values()) > k:
                 record[s[l]] -= 1
                 l += 1
             res = max(r-l + 1,res)
