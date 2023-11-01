@@ -30,7 +30,7 @@ class Solution {
     }
 }
 
-//Recursive version
+// Recursive version - good one
 // class Solution {
 
 //     public ListNode reverseList(ListNode head) {
