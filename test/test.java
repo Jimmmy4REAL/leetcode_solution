@@ -1,27 +1,24 @@
 package test;
 
 
-import java.util.HashSet;
-import java.util.Set;
-
 class Solution{
-    
-    public boolean containsDuplicate (int[] nums) {
-        Set<Integer> record = new HashSet<>();
-        for (int i=0;i<nums.length;i++){
-            // two path
-            if (record.contains(nums[i])){
-                return true;
-            }
-            // update into hashSet
-            record.add(nums[i]);
+    public int maxLoss(int[] nums){
+        // init var
+        int currMax = nums[0];
+        int res = 0;
+        // traverse - > 1. calc res 2. update currMax
+        for (int num:nums){
+            res = Math.min(num - currMax, res);
+            currMax = Math.max(currMax, num);
         }
-        return false;
+        return res;
     }
-    public static void main(String args[]){
-        int[] nums = {1,1,2};
-        Solution solution = new Solution(); // Create an instance of the Solution class
-        boolean output = solution.containsDuplicate(nums); // Call the method on the instance
-        System.out.println(output);
+
+    public static void main(String[] args){ // need to be in test.java so to exec
+        int[] nums = {1,3,5,3,1,4};
+        Solution solution = new Solution();
+        int res = solution.maxLoss(nums);
+        System.out.println(res);
     }
 }
+
